@@ -1,0 +1,9 @@
+class_path: lightning.data.datamodules.ControlledPopulationsDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 256
+  dataset_args:
+    class_path: lightning.data.datamodules.ControlledPopulationsArgs
+    init_args:
+      with_noise: True
+      variant: "random_noise"

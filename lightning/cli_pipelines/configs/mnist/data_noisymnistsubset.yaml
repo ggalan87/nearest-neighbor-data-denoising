@@ -1,0 +1,14 @@
+class_path: lightning.data.datamodules.NoisyMNISTSubsetDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 256
+  train_transforms: lightning.data.default_transforms.MNISTTrainTransforms
+  val_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  test_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  dataset_args:
+    class_path: lightning.data.datamodules.NoisyMNISTSubsetArgs
+    init_args:
+      labels_noise_perc:
+        8: 1.0
+      use_cached_dataset: True
+      included_targets: [6, 8, 9]

@@ -1,0 +1,12 @@
+class_path: lightning.data.datamodules.Food101NDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 64
+  train_transforms: lightning.data.default_transforms.Food101NTrainTransforms
+  val_transforms: lightning.data.default_transforms.Food101NTestTransforms
+  test_transforms: lightning.data.default_transforms.Food101NTestTransforms
+  val_split: 0.0
+  dataset_args:
+    class_path: lightning.data.datamodules.Food101NArgs
+    init_args:
+      training_variant: "full"

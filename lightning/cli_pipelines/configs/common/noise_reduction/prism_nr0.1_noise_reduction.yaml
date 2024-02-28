@@ -1,0 +1,7 @@
+model:
+  init_args:
+    noise_reducer_kwargs:
+      strategy: torch_metric_learning.noise_reducers.sample_rejection.PRISM
+      strategy_kwargs:
+        noise_rate: 0.1
+      keep_only_good_samples: True

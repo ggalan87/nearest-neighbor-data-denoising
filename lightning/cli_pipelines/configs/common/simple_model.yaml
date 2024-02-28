@@ -1,0 +1,17 @@
+class_path: lightning.models.LitModel
+init_args:
+  num_classes: 10
+  num_channels: 1
+  width: 28
+  height: 28
+  optimizer_class: torch.optim.Adam
+  optimizer_kwargs:
+    lr: 2e-4
+  loss_class: pytorch_metric_learning.losses.ContrastiveLoss
+  loss_kwargs:
+    cross_batch_memory:
+      memory_size: 60000
+  miner_class: null
+  miner_kwargs: null
+  noise_reducer_class: torch_metric_learning.noise_reducers.DefaultNoiseReducer
+  noise_reducer_kwargs: null

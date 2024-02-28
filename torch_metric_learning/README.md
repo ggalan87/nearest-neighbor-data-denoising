@@ -1,0 +1,2 @@
+# torch-metric-learning
+This module contains implementations that are highly motivated by and depend to [pytorch-metric-learning](https://github.com/KevinMusgrave/pytorch-metric-learning). This library contains many algorithms split across metric learning concepts, sych as samples, miners and losses.

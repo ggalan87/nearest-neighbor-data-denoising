@@ -1,0 +1,14 @@
+class_path: lightning.data.datamodules.NoisyCIFAR10DataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 64
+  train_transforms: lightning.data.default_transforms.CIFARTrainTransforms
+  val_transforms: lightning.data.default_transforms.CIFARTestTransforms
+  test_transforms: lightning.data.default_transforms.CIFARTestTransforms
+  val_split: 0.0
+  dataset_args:
+    class_path: lightning.data.datamodules.NoisyCIFARArgs
+    init_args:
+      labels_noise_perc:
+        symmetric: 0.5
+      use_cached_dataset: True

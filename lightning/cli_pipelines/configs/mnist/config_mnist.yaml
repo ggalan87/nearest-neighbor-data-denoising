@@ -1,0 +1,5 @@
+seed_everything: 13
+data: data_mnist.yaml
+sampler: ../common/sampler.yaml
+model: ../common/simple_model.yaml
+trainer: ../common/trainer.yaml

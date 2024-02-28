@@ -1,0 +1,5 @@
+seed_everything: 13
+data: data_noisymnist.yaml
+sampler: ../common/random_sampler.yaml
+model: ../common/simple_model.yaml
+trainer: ../common/trainer.yaml

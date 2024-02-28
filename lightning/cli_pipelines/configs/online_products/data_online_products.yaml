@@ -1,0 +1,11 @@
+class_path: lightning.data.datamodules.OnlineProductsDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 64
+  train_transforms: lightning.data.default_transforms.OnlineProductsTrainTransforms
+  val_transforms: lightning.data.default_transforms.OnlineProductsTestTransforms
+  test_transforms: lightning.data.default_transforms.OnlineProductsTestTransforms
+  dataset_args:
+    class_path: lightning.data.datamodules.OnlineProductsArgs
+    init_args:
+      training_variant: "SOP_0.5noised"

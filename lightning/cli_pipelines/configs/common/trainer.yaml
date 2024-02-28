@@ -1,0 +1,21 @@
+max_epochs: 30
+accelerator: 'gpu'
+logger:
+  class_path: pytorch_lightning.loggers.TensorBoardLogger
+  init_args:
+    save_dir: "./lightning_logs"
+callbacks:
+  - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+    init_args:
+      logging_interval: "step"
+  - class_path: lightning.ext.PeriodicCheckpoint
+    init_args:
+      every: 1
+  - class_path: lightning.ext.GradientMonitor
+    init_args:
+      epochs_range: null
+      iterations_range:
+        - 300
+        - 350
+      parameters_to_log:
+        - "backbone.inception_3a_3x3_reduce.weight"

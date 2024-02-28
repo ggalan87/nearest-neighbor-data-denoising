@@ -1,0 +1,5 @@
+class_path: lightning.data.samplers.RandomIdentitySampler
+init_args:
+  num_instances: 8
+  id_key: 'target'
+  fix_samples: False

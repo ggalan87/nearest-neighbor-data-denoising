@@ -1,0 +1,12 @@
+model:
+  init_args:
+    noise_reducer_kwargs:
+      strategy: torch_metric_learning.noise_reducers.sample_rejection.KNNPairRejection
+      strategy_kwargs:
+          k_neighbors: 200
+          rejection_criteria: torch_metric_learning.noise_reducers.sample_rejection.HighScoreInPositiveClassCriterion
+          rejection_criteria_kwargs:
+            threshold: 0.5
+          use_batched_knn: True
+      keep_only_good_samples: False
+      memory_size: 0

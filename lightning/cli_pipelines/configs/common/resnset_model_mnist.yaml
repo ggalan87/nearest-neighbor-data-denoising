@@ -1,0 +1,12 @@
+class_path: lightning.models.LitResnet
+init_args:
+  num_classes: 10
+  num_channels: 1
+  lr: 0.001
+  miner_class: pytorch_metric_learning.miners.BatchHardMiner
+  loss_class: pytorch_metric_learning.losses.TripletMarginLoss
+  loss_kwargs:
+    margin: 0.2
+  noise_reducer: null
+  variant: mnist
+  use_pretrained_weights: false

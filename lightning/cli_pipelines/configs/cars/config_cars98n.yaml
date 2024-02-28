@@ -1,0 +1,5 @@
+seed_everything: 13
+data: data_cars98n.yaml
+sampler: ../common/sampler.yaml
+model: ../common/inception_model_softtriple.yaml
+trainer: ../common/trainer.yaml

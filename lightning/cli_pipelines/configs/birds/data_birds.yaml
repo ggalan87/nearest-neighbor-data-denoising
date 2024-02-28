@@ -1,0 +1,11 @@
+class_path: lightning.data.datamodules.BirdsDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 64
+  train_transforms: lightning.data.default_transforms.BirdsTrainTransforms
+  val_transforms: lightning.data.default_transforms.BirdsTestTransforms
+  test_transforms: lightning.data.default_transforms.BirdsTestTransforms
+  dataset_args:
+    class_path: lightning.data.datamodules.BirdsArgs
+    init_args:
+      training_variant: "CUB_0.1noised"

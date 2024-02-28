@@ -1,0 +1,16 @@
+class_path: lightning.data.data_modules.DirtyMNISTDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 256
+  train_transforms: lightning.data.default_transforms.MNISTTrainTransforms
+  val_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  test_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  dataset_args:
+    class_path: lightning.data.data_modules.DirtyMNISTArgs
+    init_args:
+      dirty_probability: 0.1
+      translation_limits:
+        - 0.1
+        - 0.5
+      dirtiness_source: "self"
+      use_cached_dataset: True

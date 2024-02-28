@@ -1,0 +1,6 @@
+model:
+  init_args:
+    noise_reducer_kwargs:
+      strategy: torch_metric_learning.noise_reducers.sample_rejection.DummyNoiseRejection
+      strategy_kwargs: null
+      keep_only_good_samples: True

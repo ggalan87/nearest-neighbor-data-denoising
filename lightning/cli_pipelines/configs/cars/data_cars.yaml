@@ -1,0 +1,11 @@
+class_path: lightning.data.datamodules.CarsDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 64
+  train_transforms: lightning.data.default_transforms.CarsTrainTransforms
+  val_transforms: lightning.data.default_transforms.CarsTestTransforms
+  test_transforms: lightning.data.default_transforms.CarsTestTransforms
+  dataset_args:
+    class_path: lightning.data.datamodules.CarsArgs
+    init_args:
+      training_variant: "CARS_0.1noised"

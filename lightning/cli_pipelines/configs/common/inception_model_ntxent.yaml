@@ -1,0 +1,10 @@
+class_path: lightning.models.LitInception
+init_args:
+  num_classes: 1000
+  num_channels: 3
+  lr: 0.0005
+  miner_class: pytorch_metric_learning.miners.BatchEasyHardMiner
+  loss_class: pytorch_metric_learning.losses.NTXentLoss
+  loss_kwargs:
+    temperature: 0.1
+  noise_reducer: null

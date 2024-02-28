@@ -1,0 +1,11 @@
+class_path: lightning.data.datamodules.MNISTSubsetDataModule
+init_args:
+  data_dir: "/media/amidemo/Data/object_classifier_data/datasets"
+  batch_size: 256
+  train_transforms: lightning.data.default_transforms.MNISTTrainTransforms
+  val_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  test_transforms: lightning.data.default_transforms.MNISTTestTransforms
+  dataset_args:
+    class_path: lightning.data.datamodules.MNISTSubsetArgs
+    init_args:
+      included_targets: [6, 8, 9]

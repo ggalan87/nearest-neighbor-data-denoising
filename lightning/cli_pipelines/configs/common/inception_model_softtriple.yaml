@@ -1,0 +1,26 @@
+class_path: lightning.models.LitInception
+init_args:
+  num_classes: 1000
+  num_channels: 3
+  miner_class: null
+  optimizer_class: torch.optim.Adam
+  optimizer_kwargs:
+    lr: 1e-4
+    weight_decay: 1e-4
+    eps: 1e-2
+  scheduler_class: torch.optim.lr_scheduler.CosineAnnealingLR
+  scheduler_kwargs:
+    interval: "step"
+  loss_class: pytorch_metric_learning.losses.SoftTripleLoss
+  loss_kwargs:
+    optimizer_kwargs:
+      lr: 1e-2
+  noise_reducer: null
+  noise_reducer_kwargs:
+    use_pretrained: False
+    population_warm_up_epochs: 0
+    training_samples_fraction: 0.3
+    approach: "OpenMax"
+    tail_size: 0.25
+    strategy: "populations"
+  model_variant: "bninception"

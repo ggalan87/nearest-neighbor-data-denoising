@@ -1,0 +1,5 @@
+seed_everything: 13
+data: data_birds.yaml
+sampler: ../common/sampler.yaml
+model: ../common/resnet_model.yaml
+trainer: ../common/trainer.yaml

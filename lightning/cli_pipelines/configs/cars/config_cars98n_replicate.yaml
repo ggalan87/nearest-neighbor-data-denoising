@@ -1,0 +1,57 @@
+seed_everything: 13
+data:
+  class_path: lightning.data.datamodules.Cars98NDataModule
+  init_args:
+    data_dir: "/data/datasets"
+    batch_size: 64
+    train_transforms: lightning.data.default_transforms.Cars98NTrainTransforms
+    val_transforms: lightning.data.default_transforms.Cars98NTestTransforms
+    test_transforms: lightning.data.default_transforms.Cars98NTestTransforms
+    val_split: 0.0
+    num_workers: 7
+sampler:
+  class_path: lightning.data.samplers.RandomIdentitySampler
+  init_args:
+    num_instances: 4
+    id_key: 'target'
+    fix_samples: True
+model:
+  class_path: lightning.models.LitInception
+  init_args:
+    num_classes: 98
+    num_channels: 3
+    use_pretrained_weights: True
+    optimizer_class: torch.optim.Adam
+    optimizer_kwargs:
+      lr: 3e-05
+      weight_decay: 5e-4
+      eps: 1e-08
+    scheduler_class: torch.optim.lr_scheduler.CosineAnnealingLR
+    scheduler_kwargs:
+      interval: "step"
+    loss_class: pytorch_metric_learning.losses.ContrastiveLoss
+    loss_kwargs:
+      cross_batch_memory:
+        memory_size: 9500
+    miner_class: null
+    miner_kwargs: null
+    noise_reducer_class: torch_metric_learning.noise_reducers.DefaultNoiseReducer
+    noise_reducer_kwargs:
+      strategy: torch_metric_learning.noise_reducers.sample_rejection.PRISM
+      strategy_kwargs: null
+      keep_only_good_samples: True
+    model_variant: "bninception"
+trainer:
+  max_epochs: 26
+  accelerator: 'gpu'
+  logger:
+    class_path: pytorch_lightning.loggers.TensorBoardLogger
+    init_args:
+      save_dir: "./lightning_logs"
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+      init_args:
+        logging_interval: "step"
+    - class_path: lightning.ext.PeriodicCheckpoint
+      init_args:
+        every: 1
