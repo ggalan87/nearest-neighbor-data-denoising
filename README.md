@@ -1,4 +1,5 @@
 # Nearest Neighbor Data Denoising (N2D2)
+UPDATE: Present repo is archived. The new repo containing refactored code and also additional implementations and experiments for person re-id can be found here: https://github.com/ggalan87/noise-robust-learning
 
 This repository contains the code of the paper entitled "Nearest neighbor-based data denoising for deep metric learning" which was accepted in VISAPP 2024.
 
